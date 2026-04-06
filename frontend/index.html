@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Sense AI – Predictive Maintenance Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo-section">
+        <img src="assets/logo.png" class="logo">
+        <h2>POWER SENSE AI</h2>
+    </div>
+
+    <ul class="nav">
+        <li data-target="dashboard">Dashboard</li>
+        <li data-target="anomalyPanel">Anomaly Detection</li>
+        <li data-target="faultPanel">Fault Classification</li>
+        <li data-target="rulPanel">RUL Estimation</li>
+        <li data-target="historyPanel">Scan History</li>
+        <li data-target="assetPanel">Asset Manager</li>
+    </ul>
+</div>
+
+<div class="main">
+    <div class="topbar">
+        <h1>Power Sense AI: Predictive Maintenance Dashboard</h1>
+    </div>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="panel active">
+        <h2>System Overview</h2>
+        <p>Welcome to Power Sense AI. Choose an operation from the sidebar.</p>
+
+        <canvas id="liveChart" height="120"></canvas>
+
+        <div class="sim-controls">
+            <button id="simulateBtn">Start Live Sensor Simulation</button>
+            <button id="stopSimBtn">Stop Simulation</button>
+        </div>
+    </section>
+
+    <!-- ANOMALY PANEL -->
+    <section id="anomalyPanel" class="panel">
+        <h2>Anomaly Detection</h2>
+
+        <label>Asset ID:</label>
+        <select id="assetIdAnomaly" class="asset-dropdown"></select>
+
+        <label>Scan ID:</label>
+        <input type="text" id="scanIdAnomaly" placeholder="Auto-generated">
+
+        <h3>Sensor Inputs</h3>
+        <label>Voltage (V):</label>
+        <input type="number" id="an_volt">
+
+        <label>Current (A):</label>
+        <input type="number" id="an_curr">
+
+        <label>Temperature (°C):</label>
+        <input type="number" id="an_temp">
+
+        <label>Vibration (mm/s):</label>
+        <input type="number" id="an_vib">
+
+        <button id="anomalyBtn">Run Anomaly Scan</button>
+        <button id="exportAnomaly">Export Result</button>
+
+        <pre id="anomalyResult"></pre>
+    </section>
+
+    <!-- FAULT PANEL -->
+    <section id="faultPanel" class="panel">
+        <h2>Fault Classification</h2>
+
+        <label>Asset ID:</label>
+        <select id="assetIdFault" class="asset-dropdown"></select>
+
+        <label>Scan ID:</label>
+        <input type="text" id="scanIdFault" placeholder="Auto-generated">
+
+        <h3>Sensor Inputs</h3>
+        <label>Voltage (V):</label>
+        <input type="number" id="fa_volt">
+
+        <label>Current (A):</label>
+        <input type="number" id="fa_curr">
+
+        <label>Temperature (°C):</label>
+        <input type="number" id="fa_temp">
+
+        <label>Vibration (mm/s):</label>
+        <input type="number" id="fa_vib">
+
+        <button id="faultBtn">Classify Fault</button>
+        <button id="exportFault">Export Result</button>
+
+        <pre id="faultResult"></pre>
+    </section>
+
+    <!-- RUL PANEL -->
+    <section id="rulPanel" class="panel">
+        <h2>RUL Estimation</h2>
+
+        <label>Asset ID:</label>
+        <select id="assetIdRul" class="asset-dropdown"></select>
+
+        <label>Scan ID:</label>
+        <input type="text" id="scanIdRul" placeholder="Auto-generated">
+
+        <h3>Sensor Inputs</h3>
+        <label>Voltage (V):</label>
+        <input type="number" id="ru_volt">
+
+        <label>Current (A):</label>
+        <input type="number" id="ru_curr">
+
+        <label>Temperature (°C):</label>
+        <input type="number" id="ru_temp">
+
+        <label>Vibration (mm/s):</label>
+        <input type="number" id="ru_vib">
+
+        <button id="rulBtn">Estimate RUL</button>
+        <button id="exportRul">Export Result</button>
+
+        <pre id="rulResult"></pre>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="historyPanel" class="panel">
+        <h2>Scan History</h2>
+        <table id="historyTable">
+            <thead>
+                <tr>
+                    <th>Scan ID</th>
+                    <th>Asset</th>
+                    <th>Type</th>
+                    <th>Summary</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <!-- ASSET MANAGER -->
+    <section id="assetPanel" class="panel">
+        <h2>Asset Manager</h2>
+
+        <div class="asset-manager">
+            <input type="text" id="newAssetName" placeholder="Enter new asset ID">
+            <button id="addAssetBtn">Add Asset</button>
+        </div>
+
+        <ul id="assetList"></ul>
+    </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
