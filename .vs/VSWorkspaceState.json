@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\build",
+    "\\build\\PowerSenseAI",
+    "\\dist",
+    "\\frontend",
+    "\\tests"
+  ],
+  "SelectedNode": "\\tests\\test_health.py",
+  "PreviewInSolutionExplorer": false
+}
