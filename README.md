@@ -483,16 +483,6 @@ For a stronger public repository, add these sections next:
 
 ---
 
-## Note on the Enhanced Simulation File
-
-A separate enhanced frontend simulation file was generated during this work:
-
-- `app_ultra_realistic.js`
-
-That file was created as a **new artifact** and was **not used to overwrite the uploaded baseline**. If you decide to adopt it later, it should be reviewed and integrated deliberately rather than assumed to be the active repository file.
-
----
-
 ## Source Basis for This Summary
 
 This markdown is based on the uploaded backend, frontend, tests, launcher scripts, dependency file, and project README supplied in the conversation.
